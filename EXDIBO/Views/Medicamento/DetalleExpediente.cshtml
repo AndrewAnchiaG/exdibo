@@ -1,0 +1,280 @@
+﻿@model EXDIBO.Util.Record
+
+@{
+    ViewData["Title"] = "Detalles Expediente Digital";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center" >
+    <h1 style="font-family:'Liberation Sans'">Expediente Digital Bovino</h1>
+    <h4>Detalles de consulta veterinaria</h4>
+</div>
+<div>
+    <hr />
+    <dl class="row">
+
+        <dt class = "col-sm-2">
+            Fecha de Consulta
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RegisterRecord)
+        </dd>
+        <dt class = "col-sm-2">
+            Diagnóstico Veterinario
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt class = "col-sm-2">
+            Número
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+        <dt class = "col-sm-2">
+            Arete
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Earring)
+        </dd>
+        <dt class = "col-sm-2">
+            Madre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mother)
+        </dd>
+        <dt class = "col-sm-2">
+            Padre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Father)
+        </dd>
+        <dt class = "col-sm-2">
+            Raza
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Breed)
+        </dd>
+        <dt class = "col-sm-2">
+            Finca
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Farm)
+        </dd>        
+        <dt class = "col-sm-2">
+            Grupo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Group)
+        </dd>
+        <dt class = "col-sm-2">
+            Nombre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Género
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class = "col-sm-2">
+            Nacimiento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Born)
+        </dd>
+        <dt class = "col-sm-2">
+            Producción Leche
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductionMilk) KG
+        </dd>
+        <dt class = "col-sm-2">
+            N° Partos
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Birth)
+        </dd>
+        <dt class = "col-sm-2">
+            Gestación
+        </dt>
+        <dd class = "col-sm-10">
+            @{
+                if((bool)Model.Pregnant)
+                {
+                    <span>Si</span>
+                }
+                else
+                {
+                    <span>No</span>
+                }          
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            Ovulación
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ovulation)
+            
+        </dd>
+        <dt class = "col-sm-2">
+            N° Ovulaciones
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OvulationTimes)
+        </dd>
+        <dt class = "col-sm-2">
+            Peso Inicial
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartWeight) KG
+        </dd>
+        <dt class = "col-sm-2">
+            Peso Actual
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Weight) KG
+        </dd>
+        <dt class = "col-sm-2">
+            Peso Final
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FinalWeight) KG
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha Ingreso
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AdmissionDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha Salida
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DischargeDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Valorada
+        </dt>
+        <dd class = "col-sm-10">
+              @Html.DisplayFor(model => model.Price) CRC
+        </dd>
+        <dt class = "col-sm-2">
+            Descripción 
+        </dt>
+        <dd class = "col-sm-10">
+            
+            @{
+                if (Model.Notes.Length > 0)
+                {
+                        @Html.DisplayFor(model => model.Notes)
+                } else {
+                           <span>Ninguna</span>
+                } 
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            Desecho
+        </dt>
+        <dd class = "col-sm-10">
+            @{
+
+                if (Model.Discards)
+                {
+                            <span>Si</span>
+                }
+                else
+                {
+                            <span>No</span>
+                }
+
+            }
+
+
+        </dd>
+        <dt class = "col-sm-2">
+            Medicamento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Medicine)
+        </dd>
+
+        <dt class = "col-sm-2">
+            Tipo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kind)
+        </dd>
+        <dt class = "col-sm-2">
+            Aplicación
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apply)
+        </dd>
+        <dt class = "col-sm-2">
+            Via
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Via)
+        </dd>
+        <dt class = "col-sm-2">
+            Dosis
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dose) ML
+        </dd>
+        <dt class = "col-sm-2">
+            Frecuencia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Often) c/24H
+        </dd>
+        <dt class = "col-sm-2">
+            Veces
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Times) Días
+        </dd>
+        <dt class = "col-sm-2">
+            Retiro
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Withdrawal) Días
+        </dd>
+        <dt class = "col-sm-2">
+            Contraindicaciones
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contraindication)
+        </dd>
+        <dt class = "col-sm-2">
+            Indicaciones
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Indication)
+        </dd>
+       
+        <dt class = "col-sm-2">
+            Usuario
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+   
+    </dl>
+</div>
+<div class="mt-3">
+
+    <a class="btn btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+    <a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+    <a class="btn btn-success" asp-controller="Medicamento" asp-action="Farmaceuticos"><i class="fa-solid fa-suitcase-medical"></i> Farmacos</a>
+
+    <a class="btn btn-success" asp-controller="Animal" asp-action="ListaAnimales"><i class="fa-solid fa-cow"></i> Animales</a>
+
+</div>

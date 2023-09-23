@@ -1,0 +1,139 @@
+﻿@model IEnumerable<EXDIBO.Util.Reovulation>
+
+@{
+    ViewData["Title"] = "Gestacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Gestaci&oacute;n</h1>
+
+
+<a class="btn btn-success" asp-controller="Animal" asp-action="Ovulation"> <i class="fa-solid fa-plus"></i> Ovulaci&oacute;n</a>
+
+
+@{
+    if (Model != null)
+    {
+        int num = 1;
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        N° Vaca
+                    </th>
+                    <th>
+                        Vaca
+                    </th>
+                    <th>
+                        N° Toro
+                    </th>
+                    <th>
+                        Toro
+                    </th>
+                    <th>
+                        Raza
+                    </th>
+
+                    <th>
+                        Finca
+                    </th>
+
+                    <th>
+                        Grupo
+                    </th>
+                    <th>
+                        Monta
+                    </th>
+                    <th>
+                        Ciclo
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @num
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MotherNumber)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MotherName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FatherNumber)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FatherName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Breed)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Farm)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Group)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Register)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ovulation)
+                        </td>
+                        <td>
+
+                            @{
+                                bool status = (bool)item.Status;
+                            }
+                            @if (status)
+                            {
+                                <a class="btn btn-success" asp-controller="Animal" asp-action="EstadoOvulacion" asp-route-id="@item.Id" asp-route-mother="@item.MotherId" asp-route-status="false">Gestando <i class="fa-solid fa-circle-check"></i></a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-secondary" asp-controller="Animal" asp-action="EstadoOvulacion" asp-route-id="@item.Id" asp-route-mother="@item.MotherId" asp-route-status="true">Vac&iacute;a <i class="fa-solid fa-circle-xmark"></i></a>
+                            }
+
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-info text-light"><i class="fa-solid fa-circle-info"></i></a>
+
+
+                                <a class="btn btn-dark text-light"> <i class="fa-solid fa-pen-to-square"></i></a>
+
+
+                                <a class="btn btn-secondary text-light"> <i class="fa-solid fa-trash"></i></a>
+                            </div>
+
+                        </td>
+                    </tr>
+                    num++;
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="mt-4">
+            <h1 class="text-center">No hay Animales registrados en la base de datos para mostrar en pantalla</h1>
+        </div>
+    }
+}

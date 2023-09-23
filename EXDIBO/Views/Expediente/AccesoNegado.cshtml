@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Acceso Denegado";
+    Layout = "~/Views/Shared/_Start.cshtml";
+}
+<div class="text-center">
+
+<h1>Acceso Denegado</h1>
+
+<h3>Este usuario no se encuentra autorizado para ingresar a la aplicación</h3>
+
+<h4> @ViewData["ErrorInicio"]</h4>
+
+<a asp-controller="Usuario" asp-action="IniciarSesion"> Iniciar Sesi&oacute;n </a>
+
+</div>

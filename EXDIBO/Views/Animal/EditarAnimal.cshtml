@@ -1,0 +1,241 @@
+﻿@model EXDIBO.Util.Bovine
+
+@{
+    ViewData["Title"] = "EditarAnimal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+<script> var urlBase = 'https://' + '@Context.Request.Host';  </script>
+}
+
+<h1>Editar Animal</h1>
+
+
+<h1>Res</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="EditarAnimal" asp-controller="Animal" method="post">
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden" value="@Model.Id"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label">Número</label>
+                <input asp-for="Number" class="form-control" type="number" min="0" placeholder="100" value="@Model.Number"/>
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Earring" class="control-label">Arete</label>
+                <input asp-for="Earring" class="form-control" placeholder="100" value="@Model.Earring"/>
+                <span asp-validation-for="Earring" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="IdMother" class="control-label">N° Madre</label>
+                <input asp-for="IdMother" id="IdMother" type="hidden" onchange="searchMotherId()" value="@Model.IdMother" />
+                <input id="numMother" class="form-control"  type="number" onkeyup="searchMother()" min="1" placeholder="Número de Madre" value="@ViewData["nummadre"]" required/>
+                <span asp-validation-for="IdMother" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nombre de Madre</label>
+                <input id="Mother" class="form-control" type="text" placeholder="Nombre de Madre" value="@ViewData["namemadre"]" readonly/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Género Madre</label>
+                <input id="generoMother" class="form-control" placeholder="Género de Madre" type="text" value="@ViewData["genmadre"]" readonly/>
+                <div id="msgm" class="text-danger"></div>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdFather" class="control-label">N° Padre</label>
+                <input asp-for="IdFather" id="IdFather" type="hidden" onchange="searchFatherId()" value="@Model.IdFather"/>
+                <input id="numFather" class="form-control" type="number" onkeyup="searchFather()" min="1" placeholder="Número de Padre" value="@ViewData["numpadre"]" required/>
+                <span asp-validation-for="IdFather" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nombre de Padre</label>
+                <input id="father" class="form-control" type="text" placeholder="Nombre de Padre" value="@ViewData["namepadre"]" readonly/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Género Padre</label>
+                <input id="generofather" class="form-control" placeholder="Género Padre" type="text" value="@ViewData["genpadre"]" readonly/>
+                <div id="msgf" class="text-danger"> </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdBreed" class="control-label">Raza</label>
+                <select asp-for="IdBreed" class="form-select" onselect="@Model.IdBreed">
+                @{
+                    foreach (var item in (List<EXDIBO.Util.Breed>)ViewData["breeds"])
+                    {
+                        <option value="@item.Id">Raza: @item.Name - Gen: @item.Genetics </option>
+                    }
+                }
+                </select>
+                <span asp-validation-for="IdBreed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdFarm" class="control-label">Finca</label>
+                <select asp-for="IdFarm" class="form-select">
+                    @{
+                        foreach (var item in (List<EXDIBO.Util.Farm>)ViewData["farms"])
+                        {
+                            if (item.Id == @Model.IdFarm)
+                            {
+                                <option value="@item.Id" selected> @item.Name </option>
+                            }else
+                            {
+                                <option value="@item.Id"> @item.Name </option>
+                            }
+                        }
+                }
+                </select>
+                <span asp-validation-for="IdFarm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdGroup" class="control-label">Grupo</label>
+                <select asp-for="IdGroup" class="form-select">
+                    @{
+                        foreach (var item in (List<EXDIBO.Util.Group>)ViewData["groups"] )
+                        {
+                            if (item.Id == @Model.IdGroup)
+                            {
+                                <option value="@item.Id" selected> @item.Name </option>
+                            }else
+                            {
+                                <option value="@item.Id"> @item.Name </option>
+                            }   
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label">Marca - Fierro</label>
+                <input asp-for="Brand" class="form-control" value="@Model.Brand"/>
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" value="@Model.Name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label">Genero</label>
+                <select asp-for="Gender" class="form-control">
+                    @{
+                        if (@Model.Gender == "Hembra")
+                        {
+                            <option value="Hembra" selected>Hembra</option>
+                            <option value="Macho">Macho</option>
+                        }else 
+                        {
+                            <option value="Hembra">Hembra</option>
+                            <option value="Macho" selected>Macho</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Born" class="control-label">Nacimiento</label>
+                <input id="borndate" asp-for="Born" class="form-control" type="datetime-local" value="@Model.Born.ToString("yyyy-MM-ddThh:mm")"/>
+                <span asp-validation-for="Born" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductionMilk" class="control-label">Producción Lactea</label>
+                <input asp-for="ProductionMilk" class="form-control" min="0" placeholder="0 Litros" value="@Model.ProductionMilk"/>
+                <span asp-validation-for="ProductionMilk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birth" class="control-label">Partos</label>
+                <input asp-for="Birth" class="form-control" type="number" min="0" placeholder="0 Hijos" value="@Model.Birth"/>
+                <span asp-validation-for="Birth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pregnant" class="control-label">Gestación</label>
+                <select asp-for="Pregnant" class="form-control">
+
+                        @if (@Convert.ToBoolean(Model.Pregnant))
+                        {
+                            <option value="False">No</option>
+                            <option value="True" selected>Si</option>
+                        }
+                        else
+                        {
+                            <option value="False" selected>No</option>
+                            <option value="True">Si</option>
+                        }
+             
+                </select>
+                <span asp-validation-for="Pregnant" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ovulation" class="control-label">Fecha Ovulación</label>
+                <input asp-for="Ovulation" class="form-control" type="datetime-local" value="@Model.Ovulation.ToString("yyyy-MM-ddThh:mm")" />
+                <span asp-validation-for="Ovulation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OvulationTimes" class="control-label">Ovulaciones</label>
+                <input asp-for="OvulationTimes" class="form-control" type="number" min="0" placeholder="0" value="@Model.OvulationTimes"/>
+                <span asp-validation-for="OvulationTimes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartWeight" class="control-label">Peso Anterior</label>
+                <input asp-for="StartWeight" class="form-control" type="number" min="0" placeholder="0 K" value="@Model.StartWeight"/>
+                <span asp-validation-for="StartWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label">Peso Actual</label>
+                <input asp-for="Weight" class="form-control" type="number" min="0" placeholder="0 K" value="@Model.Weight"/>
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinalWeight" class="control-label">Peso Final</label>
+                <input asp-for="FinalWeight" class="form-control" type="number" min="0" placeholder="0 K" value="@Model.FinalWeight"/>
+                <span asp-validation-for="FinalWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdmissionDate" class="control-label">Fecha Ingreso</label>
+                <input asp-for="AdmissionDate" class="form-control" type="datetime-local" value="@Model.AdmissionDate.ToString("yyyy-MM-ddThh:mm")"/>
+                <span asp-validation-for="AdmissionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DischargeDate" class="control-label">Fecha Salida</label>
+                <input asp-for="DischargeDate" class="form-control" type="datetime-local" value="@Model.DischargeDate.ToString("yyyy-MM-ddThh:mm")" />
+                <span asp-validation-for="DischargeDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Precio</label>
+                <input asp-for="Price" class="form-control" type="number" min="0" placeholder="0 CRC" value="@Model.Price"/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label">Notas</label>
+                <input asp-for="Notes" class="form-control"  placeholder="Observaciones" value="@Model.Notes"/>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                     <input class="form-check-input" asp-for="Discards" checked="@Model.Discards"/> Desechar
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Status" type="checkbox" checked="@Model.Status"/> Activo
+                </label>
+            </div>
+            <div class="form-group mt-2">
+                <a class="btn btn-lg btn-danger" asp-action="ListaAnimales" asp-controller="Animal"><i class="fa-solid fa-ban"></i> Cancelar </a>
+                 <button type="submit" class="btn btn-lg btn-success"><i class="fa-solid fa-floppy-disk"></i> Guardar </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="~/js/Animal.js"></script>

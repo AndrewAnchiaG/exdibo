@@ -1,0 +1,142 @@
+﻿@model IEnumerable<EXDIBO.Util.Bovine>
+
+@{
+    ViewData["Title"] = "Animal Desecho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Animales Desechos</h1>
+
+<form asp-controller="Reporte" asp-action="AnimalDesecho" method="POST">
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Desde</div>
+                </div>
+                <input type="date" name="Desde" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" min="2010-01-01">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Hasta</div>
+                </div>
+                <input type="date" name="Hasta" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" min="2010-01-01">
+            </div>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+    </div>
+    <span class="text-center text-danger"> @ViewData["error"] </span>
+</form>
+
+
+@{
+    int num = 1;
+
+
+    if (Model != null)
+    {
+
+        <table class="table table-responsive table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        N&uacute;mero
+                    </th>
+                    <th>
+                        Arete
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        G&eacute;nero
+                    </th>
+                    <th>
+                        Naci&oacute;
+                    </th>
+                    <th>
+                        Producci&oacute;n
+                    </th>
+                    <th>
+                        Partos
+                    </th>
+                    <th>
+                        Peso
+                    </th>
+                    <th>
+                        Peso
+                    </th>
+                    <th>
+                        Peso Final
+                    </th>
+                    <th>
+                        Fecha Desecho
+                    </th>
+                    <th>
+                        Precio
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    string discarddate = item.DischargeDate.Day + "-" + item.DischargeDate.Month + "-" + item.DischargeDate.Year;
+                    string born = item.Born.Day + "-" + item.Born.Month + "-" + item.Born.Year;
+                    <tr>
+                        <td>
+                            @num
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Earring)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @born
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductionMilk)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Birth)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartWeight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Weight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FinalWeight)
+                        </td>
+                        <td>
+                            @discarddate
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                    </tr>
+                    num++;
+                }
+            </tbody>
+        </table>
+    }
+}
+
+
+

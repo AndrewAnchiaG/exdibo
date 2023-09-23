@@ -1,0 +1,103 @@
+﻿@model IEnumerable<EXDIBO.Util.Farm>
+
+@{
+    ViewData["Title"] = "Fincas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Fincas</h1>
+
+<p>
+    <a class="btn btn-success" asp-action=""><i class="fa-solid fa-plus"></i> Finca</a>
+</p>
+
+@{
+    @if (Model != null)
+    {
+        var num = 1;
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            C&oacute;digo
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Correo
+                        </th>
+                        <th>
+                            Direcci&oacute;n
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span>@num</span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Register)
+                            </td>
+                            <td>
+                                @if (Convert.ToBoolean(item.Status))
+                                {
+                                    <span>Activo</span>
+                                }
+                                else
+                                {
+                                    <span>Inactivo</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                    <a asp-action="DetallesFinca" asp-controller="Finca" asp-route-id="@item.Id" class="btn btn-info text-light"> <i class="fa-solid fa-file-lines"></i></a>
+                                    <a asp-action="EditarFinca" asp-controller="Finca" asp-route-id="@item.Id" class="btn btn-dark text-light"> <i class="fa-solid fa-pen-to-square"></i></a>
+                                    @if (Convert.ToBoolean(item.Status))
+                                    {
+                                        <a class="btn btn-secondary text-light" asp-action="EstadoFinca" asp-controller="Finca" asp-route-id="@item.Id" asp-route-status="false"><i class="fa-solid fa-trash"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-success text-light" asp-action="EstadoFinca" asp-controller="Finca" asp-route-id="@item.Id" asp-route-status="true"><i class="fa-solid fa-check"></i></a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                        num++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h1 class="text-center mt-4">No hay Fincas para mostrar</h1>
+    }
+}

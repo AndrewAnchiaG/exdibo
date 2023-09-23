@@ -1,0 +1,274 @@
+﻿@model EXDIBO.Util.Detail
+
+@{
+    ViewData["Title"] = "Detalles de Animal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    @if (Model != null)
+    {
+        <h1>Detalles de Animal</h1>
+
+        <div>
+            <h4>Res</h4>
+            <hr />
+            <dl class="row">
+
+                <dt class="col-sm-2">
+                    Número Animal
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Number)
+                </dd>
+                <dt class="col-sm-2">
+                    Arete
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Earring)
+                </dd>
+                <dt class="col-sm-2">
+                    N&deg; Madre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MotherNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    Madre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Mother)
+                </dd>
+                <dt class="col-sm-2">
+                    G&eacute;nero Madre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MotherGender)
+                </dd>
+                <dt class="col-sm-2">
+                    Raza Madre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MotherBreed)
+                </dd>
+                <dt class="col-sm-2">
+                    N&deg; Padre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FatherNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    Padre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Father)
+                </dd>
+                <dt class="col-sm-2">
+                    G&eacute;nero Padre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FatherGender)
+                </dd>
+                <dt class="col-sm-2">
+                    Raza Padre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FatherBreed)
+                </dd>
+                <dt class="col-sm-2">
+                    Finca
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Farm)
+                </dd>
+                <dt class="col-sm-2">
+                    Grupo
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Group)
+                </dd>
+                <dt class="col-sm-2">
+                    Marca
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Brand)
+                </dd>
+                <dt class="col-sm-2">
+                    Nombre
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    G&eacute;nero
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Gender)
+                </dd>
+                <dt class="col-sm-2">
+                    Raza
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Breed)
+                </dd>
+                <dt class="col-sm-2">
+                    Nacimiento
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Born)
+                </dd>
+                <dt class="col-sm-2">
+                    Producci&oacute;n
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ProductionMilk) L
+                </dd>
+                <dt class="col-sm-2">
+                    Partos
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Birth) Hijos
+                </dd>
+                <dt class="col-sm-2">
+                    Gestaci&oacute;n
+                </dt>
+                <dd class="col-sm-10">
+                    @{
+                        if ((bool)Model.Pregnant)
+                        {
+                            <span>Si</span>
+                        }
+                        else
+                        {
+                            <span>No</span>
+                        }
+
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    Última Ovulaci&oacute;n
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Ovulation)
+                </dd>
+                <dt class="col-sm-2">
+                    N° Ovulaciones
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.OvulationTimes) Veces
+                </dd>
+                <dt class="col-sm-2">
+                    Peso Anterior
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.StartWeight) KG
+                </dd>
+                <dt class="col-sm-2">
+                    Peso Actual
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Weight) KG
+                </dd>
+                <dt class="col-sm-2">
+                    Peso Final
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FinalWeight) KG
+                </dd>
+                <dt class="col-sm-2">
+                    Ingreso
+                </dt>
+                <dd class="col-sm-10">
+                    @{
+                        <span>@Model.AdmissionDate.ToString("dd/MM/yyyy")</span>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    Egreso
+                </dt>
+                <dd class="col-sm-10">
+                    @{
+                        <span>@Model.DischargeDate.ToString("dd/MM/yyyy")</span>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    Precio
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Price) CRC
+                </dd>
+                <dt class="col-sm-2">
+                    Desecho
+                </dt>
+                <dd class="col-sm-10">
+                    @{
+                        if ((bool)Model.Discards)
+                        {
+                            <span>Si</span>
+                        }
+                        else
+                        {
+                            <span>No</span>
+                        }
+
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    Estado
+                </dt>
+                <dd class="col-sm-10">
+                    @{
+                        if ((bool)Model.Status)
+                        {
+                            <span>Activo</span>
+                        }
+                        else
+                        {
+                            <span>Inactivo</span>
+                        }
+
+                    }
+                </dd>
+
+                @{
+                    if (Model.Notes.Length > 0)
+                    {
+                        <dt class="col-sm-2">
+                            Anotaciones
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Notes)
+                        </dd>
+                    }
+                }
+
+
+            </dl>
+        </div>
+        <div>
+            <a class="btn btn-lg btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+            <a class="btn btn-lg btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+            <a class="btn btn-lg btn-success" asp-controller="Animal" asp-action="ListaAnimales"><i class="fa-solid fa-list-ol"></i> Animales</a>
+
+        </div>
+
+    }
+    else
+    {
+        <div class="my-4 text-center">
+
+            <h1 class="my-4 display-1">Detalles de Animal</h1>
+
+            <h1 class="my-4">El Animal que se indica no existe</h1>
+
+            <h3 class="my-4">No hay información del Animal indicado, porque no existe un registro en la Base de Datos</h3>
+
+            <p class="my-4">Por favor diríjase al Menú</p>
+
+            <a class="btn btn-success my-4" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+        </div>
+    }
+}

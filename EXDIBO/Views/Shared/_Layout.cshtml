@@ -1,0 +1,141 @@
+﻿@{
+    @using System.Security.Claims;
+
+    var nameuser = User.FindFirst(ClaimTypes.Name).Value;
+    var IdUser = User.FindFirst(ClaimTypes.Sid).Value;
+    var gender = User.FindFirst(ClaimTypes.Gender).Value;
+    var role = User.FindFirst(ClaimTypes.Role).Value;
+    if (role == "0" || role == "3")
+    {
+        nameuser = "Ing. " + User.FindFirst(ClaimTypes.Name).Value;
+    }
+    else if (role == "5")
+    {
+        nameuser = "Vet. " + User.FindFirst(ClaimTypes.Name).Value;
+    }
+    else if (gender == "Masculino")
+    {
+        nameuser = "Sr. " + User.FindFirst(ClaimTypes.Name).Value;
+    }
+    else if (gender == "Femenino")
+    {
+        nameuser = "Sra. " + User.FindFirst(ClaimTypes.Name).Value;
+    }
+    else
+    {
+        nameuser = User.FindFirst(ClaimTypes.Name).Value;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Expediente Digital Bovino">
+    <meta name="keywords" content="Vaca, expedientevaca, expediente,ExpedienteAnimal, Bovino, Animal, Vaca, Toro, expedientedigitalbovino, registroanimal">
+    <meta name="author" content="Ing. Andrew Anchia Gonzalez">
+    <title>@ViewData["Title"] - EXDIBO</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/7566b20199.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Expediente" asp-action="Index"><img src="~/imagenes/cawbull.png" width="30px" height="30px" /> EXDIBO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+                        </li>
+
+                        @if (User.IsInRole("0") || User.IsInRole("1") || User.IsInRole("2"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Usuario" asp-action="ListaUsuarios"><i class="fa-solid fa-users-line"></i> Usuarios </a>
+                            </li>
+                        }
+
+                        @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Animal" asp-action="ListaAnimales"><i class="fa-solid fa-cow"></i> +Animal</a>
+                        </li>*@
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Animal" asp-action="ListaAnimales"><i class="fa-solid fa-cow"></i> Animales</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Medicamento" asp-action="Farmaceuticos"><i class="fa-solid fa-suitcase-medical"></i> Medicamentos</a>
+                        </li>
+
+                        @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Medicamento" asp-action="Farmaco"><i class="fa-solid fa-file-medical"></i> +Medicamento</a>
+                        </li>*@
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Medicamento" asp-action="VerRegistros"><i class="fa-solid fa-folder-tree"></i> Expedientes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Usuario" asp-action="DetallesUsuario" asp-route-Id="@IdUser"><i class="fa-solid fa-circle-user"></i> @nameuser </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Salir"><i class="fa-solid fa-right-from-bracket"></i>  Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main">
+            @RenderBody()
+        </main>
+        @{
+            DateTime myDateTime = DateTime.Now;
+            string year = myDateTime.Year.ToString();
+        }
+       @*<footer class="footer text-center mt-2">
+            <hr />
+            <div>
+                Todos los derechos reservados &copy; @year - EXDIBO&reg; - <a asp-controller="Expediente" asp-action="Politicas">Políticas</a>
+                <div class="text-center">¡Mi ayuda viene del SEÑOR, quien hizo el cielo y la tierra!</div>
+                <h6 class="text-muted">Salmos 121:2</h6>
+            </div>
+        </footer>*@
+    </div>
+
+     <div class="container-fluid mt-4">
+      <footer class="pt-4 mt-4">
+        <ul class="nav justify-content-center border-bottom border-top py-2 my-2">
+          <li class="nav-item"><a asp-controller="Expediente" asp-action="Index" class="nav-link px-2 text-muted"><i class="fa-solid fa-house"></i> Inicio</a></li>
+          <li class="nav-item"><a asp-controller="Expediente" asp-action="Portada" class="nav-link px-2 text-muted"><i class="fa-solid fa-bars"></i> Menú</a></li>
+          <li class="nav-item"> <a asp-controller="Animal" asp-action="ListaAnimales" class="nav-link px-2 text-muted"><i class="fa-solid fa-cow"></i> Animales</a></li>
+          <li class="nav-item"> <a asp-controller="Medicamento" asp-action="Farmaceuticos" class="nav-link px-2 text-muted"><i class="fa-solid fa-suitcase-medical"></i> Medicamentos</a></li>
+          <li class="nav-item"> <a asp-controller="Medicamento" asp-action="VerRegistros" class="nav-link px-2 text-muted"><i class="fa-solid fa-folder-tree"></i> Expedientes</a></li>
+      <li class="nav-item"> <a asp-controller="Expediente" asp-action="Politicas" class="nav-link px-2 text-muted"><i class="fa-solid fa-scale-unbalanced"></i> Políticas</a></li>   
+      </ul>
+        <p class="text-center text-muted">
+            Todos los derechos reservados &copy; @year - EXDIBO&reg; - <a asp-controller="Expediente" asp-action="Politicas" class="text-decoration-none">Políticas</a>
+        <br />
+        ¡Mi ayuda viene del SEÑOR, quien hizo el cielo y la tierra!
+        <br />
+        Salmos 121:2
+        </p>
+
+      </footer>
+    </div>
+
+    
+</body>
+</html>

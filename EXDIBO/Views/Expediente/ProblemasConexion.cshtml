@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Problemas de Conexión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <div class="row">
+        <div class="col-6">
+                   <img src="~/imagenes/appserve.png" width="80%" height="80%" class="ms-4 rounded"/>
+                   <img src="~/imagenes/warning.png" width="90px;" height="90px;" class="m-0"/>   
+        </div>
+        <div class="col-6">
+            <div class="">
+                <h1 class="my-4 display-2">Oops, Algo va mal!</h1>
+                <h4>Bueno, esto es inesperado...!</h4>
+                <h1 class="my-4 display-1">Error 500</h1>
+                <h1 class="my-4">Error Interno en el Servidor</h1>
+                <p class="mt-5">Intentar volver al Menú</p>
+                <a class="btn btn-lg btn-success mt-2" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+                <a class="btn btn-lg btn-success mt-2" asp-controller="Expediente" asp-action="Index"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a class="btn btn-lg btn-success mt-2" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

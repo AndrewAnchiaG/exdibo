@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Acceso Inactivo";
+    Layout = "~/Views/Shared/_Start.cshtml";
+}
+
+<div class="mt-4">
+
+    <h1 class="text-center">Acceso Denegado</h1>
+
+    <h2 class="mt-3">Usuario Inactivo</h2>
+
+    <h4 class="mt-3">Este usuario no se encuentra autorizado para ingresar a la aplicación</h4>
+
+    <p>El Usuario que intenta ingresar se encuentra desactivado, por favor diríjase a su Administrador para que realice la activacion del usuario con los privilegios correspondientes.</p>
+
+    <div class="mt-3 text-center">
+        <a class="btn btn-success" asp-controller="Usuario" asp-action="IniciarSesion" class="nav-link px-2 text-muted"><i class="fa-solid fa-user-lock"></i> Iniciar Sesión</a>
+    </div>
+</div>

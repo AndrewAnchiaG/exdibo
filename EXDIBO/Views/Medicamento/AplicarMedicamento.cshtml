@@ -1,0 +1,119 @@
+﻿@model EXDIBO.Util.MedicineRecord
+
+@{
+    ViewData["Title"] = "AplicarMedicamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+<script> var urlBase ='@Context.Request.Host';  </script>
+}
+<h1 class="text-center">Registro de Medicamentos Aplicados</h1>
+
+<h4>Aplicar Medicamento</h4>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Medicamento" asp-action="AplicarMedicamento" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="text-danger">
+                <span> @ViewData["idmedicine"]</span>
+                <br />
+                <span> @ViewData["Idbovine"] </span>
+                <br />
+
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Ilness" class="control-label">Diagn&oacute;stico</label>
+
+                <select asp-for="Ilness" class="form-select">
+                    @{
+                        foreach (var item in (List<EXDIBO.Util.Kind>)ViewData["enfermedad"])
+                        {
+                                    <option value="@item.Name">@item.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Ilness" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdMedicine" class="control-label">Medicamento</label>
+
+                <select asp-for="IdMedicine" class="form-select">
+                    @{
+                        foreach (var item in (List<EXDIBO.Util.Medicine>)ViewData["medicamento"])
+                        {
+                                    <option value="@item.Id">@item.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdMedicine" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Número Animal</label>
+                <input id="bovine" name="bovine" class="form-control" min="0" type="number" onkeyup="searchbovine()" placeholder="Número de animal" required/>
+            </div>
+             <div class="form-group">
+                 <label class="control-label">Arete</label>
+                <input id="lblarete" name="lblarete" class="form-control" readonly/>
+
+                </div>
+             <div id="name" class="form-group">
+                <label class="control-label">Nombre</label>
+                 <input id="lblnombre" name="lblnombre" class="form-control" readonly/>
+                </div>
+             <div iid="gender" class="form-group">
+                <label class="control-label">G&eacute;nero</label>
+                 <input id="lblgenero" name="lblgenero" class="form-control" readonly/>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="IdBovine" id="IdBovine" class="form-control" min="1" type="hidden" />
+                <input asp-for="IdFarm" id="IdFarm" class="form-control" min="1" type="hidden" />
+                <input asp-for="IdGroup" id="IdGroup" class="form-control" min="1" type="hidden"/>
+                <input asp-for="IdKind" id="IdKind" class="form-control" min="1" type="hidden"/>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Symptom" class="control-label">Síntomas</label>
+                <textarea asp-for="Symptom" class="form-control" placeholder="Síntomas"> </textarea>
+                <span asp-validation-for="Symptom" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label">Indicaciones</label>
+                <textarea asp-for="Notes" class="form-control" placeholder="Indicaciones"> </textarea>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+
+                <button type="submit" class="btn btn-lg btn-success">Guardar <i class="fa-solid fa-floppy-disk"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3">
+
+    <a class="btn btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+    <a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+    <a class="btn btn-success" asp-controller="Medicamento" asp-action="Farmaceuticos"><i class="fa-solid fa-suitcase-medical"></i> Farmacos</a>
+
+    <a class="btn btn-success" asp-controller="Animal" asp-action="ListaAnimales"><i class="fa-solid fa-cow"></i> Animales</a>
+
+</div>
+
+            <script src="~/js/Medicamento.js"></script>
+

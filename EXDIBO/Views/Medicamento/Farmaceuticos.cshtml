@@ -1,0 +1,124 @@
+﻿@model IEnumerable<EXDIBO.Util.Medicine>
+
+@{
+    ViewData["Title"] = "Farmacos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>F&aacute;rmacos</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Farmaco"><i class="fa-solid fa-plus"></i> Medicamento <i class="fa-solid fa-pills"></i></a>
+</p>
+
+@{
+    if (Model != null)
+    {
+        var num = 1;
+        <div class="">
+            <table class="table table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                           Aplicaci&oacute;n
+                        </th>
+                        <th>
+                            V&iacute;a
+                        </th>
+                        <th>
+                            Dosis
+                        </th>
+                        <th>
+                            Frecuencia
+                        </th>
+                        <th>
+                            Veces
+                        </th>
+
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Opciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @num
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Kind)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Apply)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Via)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Dose) ML
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Often) c/24H
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Times) días
+                            </td>
+                            <td>
+                                @{
+                                    if (item.Status)
+                                    {
+                                        <a class="btn btn-outline-success">Activo</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-outline-secondary">Inactivo</a>
+                                    }
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+                                    <a asp-action="DetallesFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" class="btn btn-info text-light"> <i class="fa-solid fa-syringe"></i></a>
+                                    <a asp-action="EditarFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" class="btn btn-dark text-light"> <i class="fa-solid fa-pen-to-square"></i></a>
+                                    @if (Convert.ToBoolean(item.Status))
+                                    {
+                                        <a class="btn btn-secondary text-light" asp-action="EstadoFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" asp-route-status="false"><i class="fa-solid fa-trash"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-success text-light" asp-action="EstadoFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" asp-route-status="true"><i class="fa-solid fa-check"></i></a>
+                                    }
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                        num++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h1>No hay Medicamentos registrados en la base de datos para mostrar en pantalla</h1>
+        </div>
+    }
+}

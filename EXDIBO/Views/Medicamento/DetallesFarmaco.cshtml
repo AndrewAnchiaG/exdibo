@@ -1,0 +1,139 @@
+﻿@model EXDIBO.Util.Medicine
+
+@{
+    ViewData["Title"] = "Detalles de Medicamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    @if (Model != null) {
+
+<h1>Detalles de Medicamento</h1>
+
+<div>
+    <h4>Medicine</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            N° Farmaco
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            Nombre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            N° Tipo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdKind)
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kind)
+        </dd>
+        <dt class = "col-sm-2">
+            Aplicar
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apply)
+        </dd>
+        <dt class = "col-sm-2">
+            Vía
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Via)
+        </dd>
+        <dt class = "col-sm-2">
+            Dosis
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dose) ML
+        </dd>
+        <dt class = "col-sm-2">
+            Frecuencia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Often) c/24H
+        </dd>
+        <dt class = "col-sm-2">
+            Veces
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Times) D&iacute;as
+        </dd>
+        <dt class = "col-sm-2">
+            Periodo Retiro
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Withdrawal) D&iacute;as
+        </dd>
+        <dt class = "col-sm-2">
+            Contraindicaciones
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contraindication)
+        </dd>
+        <dt class = "col-sm-2">
+            Editado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Register)
+        </dd>
+        <dt class = "col-sm-2">
+            Estado
+        </dt>
+        <dd class = "col-sm-10">
+            @{
+                if (Model.Status)
+                {
+                                            <span>Activo</span>
+                }
+                else
+                {
+                                            <span>Inactivo</span>
+                }
+            }
+        </dd>
+         <dt class = "col-sm-2">
+            Notas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+    </dl>
+</div>
+<div>
+    
+   <a class="btn btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+    <a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+    <a class="btn btn-success" asp-controller="Medicamento" asp-action="EditarFarmaco" asp-route-id="@Model.Id"><i class="fa-solid fa-user-pen"></i> Editar</a>
+
+</div>
+}else{
+
+    <div class="my-4 text-center">
+
+        <h1 class="my-4 display-1">Detalles de Medicamento</h1>
+
+        <h1 class="my-4">El Medicamento que se indica no existe</h1>
+
+        <h3 class="my-4">No hay información del Medicamento indicado, porque no existe un registro en la Base de Datos</h3>
+
+        <p class="my-4">Por favor diríjase al Menú</p>
+
+        <a class="btn btn-success my-4" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+    </div>
+
+}
+
+}

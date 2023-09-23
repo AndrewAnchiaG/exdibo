@@ -1,0 +1,141 @@
+﻿@model EXDIBO.Util.Production
+
+@{
+    ViewData["Title"] = "Producción Láctea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+<script> var urlBase = '@Context.Request.Host';  </script>
+}
+
+<h1 class="text-center">Producci&oacute;n L&aacute;ctea</h1>
+
+<h4>Produccci&oacute;n</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Production" asp-controller="animal" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Mensaje -->
+            <div role="alert" class="text-danger">@ViewData["error"]</div>
+           
+             <!-- ID Oculto -->
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden" value="0" />
+            </div>
+            
+             <!-- Nombre -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Descripción</label>
+                <input asp-for="Name" class="form-control" type="text" placeholder="Descripción" autofocus value=""/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- ID de Vaca-->
+            <div class="form-group">
+                <input asp-for="IdBovine" class="form-control" type="hidden" required/>
+            </div>
+
+            <!-- Numero de Vaca -->
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero Animal</label>
+                <input class="form-control" id="caw" name="caw" onkeyup="searchCaw()" type="number" placeholder="N° de Animal" min="0" required/>
+                <span asp-validation-for="IdBovine" class="text-danger"></span>
+            </div>
+
+            <!-- Arete de Vaca-->
+            <div class="form-group">
+                <label class="control-label">Arete</label>
+                <input class="form-control-plaintext border" id="earring" name="earring" placeholder=" Arete" readonly/>
+                <span class="text-danger"> </span>
+            </div>
+
+            <!-- Nombre de Vaca-->
+            <div class="form-group">
+                <label class="control-label">Animal</label>
+                <input class="form-control-plaintext border" id="bovine" name="bovine" placeholder=" Animal" readonly/>
+                <span class="text-danger"> </span>
+            </div>
+
+            <!-- Genero de Vaca-->
+            <div class="form-group">
+                <label class="control-label">G&eacute;nero Animal</label>
+                <input class="form-control-plaintext border" id="genderbovine" name="genderbovine" placeholder=" Género" readonly/>
+                <div id="msgerror" class="text-danger"></div>
+            </div>
+
+            <!-- Produccion de Vaca-->
+            <div class="form-group">
+                <div class="row"> 
+                    <div class="col-9">  
+                        <label asp-for="Output" class="control-label">Producci&oacute;n</label>
+                        <input asp-for="Output" id="Output" name="Output" class="form-control" type="number" min="0" max="95000" placeholder="0" required/>
+                    </div> 
+                    <div class="col p-1 m-4">
+                        <span class="text-secondary">ML</span>
+                    </div>
+                </div>
+                <span asp-validation-for="Output" class="text-danger"></span>
+            </div>
+
+            <!-- Finca -->
+            <div class="form-group">
+                <label class="control-label">Finca</label>
+                <select asp-for="IdFarm" id="IdFarm" class="form-select" required>
+                @{
+                    foreach (var item in (List<EXDIBO.Util.Farm>)ViewData["farms"])
+                    {
+                    <option value="@item.Id"> @item.Name </option>
+                    }
+                }
+                </select>
+                <span asp-validation-for="IdFarm" class="text-danger"></span>
+            </div>
+
+            <!-- Grupo -->
+            <div class="form-group">
+                <label class="control-label">Grupo</label>
+                <select asp-for="IdGroup" id="IdGroup" class="form-select" required>
+                    @{
+                        foreach (var item in (List<EXDIBO.Util.Group>)ViewData["groups"] )
+                        {
+                                             <option value="@item.Id"> @item.Name </option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdGroup" class="text-danger"></span>
+            </div>
+
+            <!-- Fecha Producion -->
+            <div class="form-group">
+                <label asp-for="Register" class="control-label">Fecha Producci&oacute;n</label>
+                <input asp-for="Register" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")"/>
+                <span asp-validation-for="Register" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="Status" class="form-control" checked type="hidden"/>
+            </div>
+            <div class="form-group mt-4">
+
+                <a class="btn btn-lg btn-danger" onclick="history.back()">Cancelar <i class="fa-solid fa-ban"></i></a>
+                
+                <button class="btn btn-lg btn-success" type="submit">Guardar <i class="fa-solid fa-floppy-disk"></i></button>
+            </div>
+
+            <div class="mt-4">
+                <a class="btn btn-lg btn-success" onclick="history.back()"><i class="fa-solid fa-arrow-left-long"></i> Atrás</a>
+
+                <a class="btn btn-lg btn-success" asp-controller="Expediente" asp-action="Portada">Menú <i class="fa-solid fa-bars"></i></a>
+
+                <a class="btn btn-lg btn-success" asp-controller="Animal" asp-action="ListaAnimales" ><i class="fa-solid fa-list-ol"></i> Animales</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+  
+<script type="text/javascript" src="~/js/Produccion.js"></script>

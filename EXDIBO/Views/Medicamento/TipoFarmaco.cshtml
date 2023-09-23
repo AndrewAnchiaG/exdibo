@@ -1,0 +1,88 @@
+﻿@model IEnumerable<EXDIBO.Util.Kind>
+
+@{
+    ViewData["Title"] = "Tipo Farmaco";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Lista de Tipo de Farmaco</h1>
+
+<p>
+    <a class="btn btn-success" asp-controller="Medicamento" asp-action="NuevoFarmaco"><i class="fa-solid fa-plus"></i> Tipo de Fármaco</a>
+</p>
+
+@{
+    int num = 1;
+    if (Model != null)
+    {
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            N&uacute;mero
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Opciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                            @num
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @if(Convert.ToBoolean(item.Status))
+                                {
+                                    <a class="btn btn-outline-success">Activo</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-outline-secondary"><i class="fa-solid fa-check"></i></a>
+                                }
+
+                            </td>
+                            <td>
+                                <a asp-action="DetallesTipoFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" class="btn btn-info text-light"> <i class="fa-solid fa-syringe"></i></a>
+                                <a asp-action="EditarTipoFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" class="btn btn-dark text-light"> <i class="fa-solid fa-pen-to-square"></i></a>
+                                @if(Convert.ToBoolean(item.Status))
+                                {
+                                <a class="btn btn-secondary text-light" asp-action="EstadoTipoFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" asp-route-status="false"><i class="fa-solid fa-trash"></i></a>
+                                }
+                                else
+                                {
+                                <a class="btn btn-success text-light" asp-action="EstadoTipoFarmaco" asp-controller="Medicamento" asp-route-id="@item.Id" asp-route-status="true"><i class="fa-solid fa-check"></i></a>
+                                }
+                            </td>
+                        </tr>
+                        num++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h3>No hay Tipos de Farmacos registrados en la base de datos para mostrar en pantalla</h3>
+        </div>
+    }
+}

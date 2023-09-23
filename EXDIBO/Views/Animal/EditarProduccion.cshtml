@@ -1,0 +1,95 @@
+﻿@model EXDIBO.Util.ProductionReport
+
+@{
+    ViewData["Title"] = "Editar Producción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Editar Producci&oacute;n</h1>
+
+<h4>Producci&oacute;n</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="EditarProduccion" asp-controller="Animal" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden" value="@Model.Id" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Codigo" class="control-label">C&oacute;digo</label>
+                <input asp-for="Codigo" class="form-control" />
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Production" class="control-label">Producci&oacute;n</label>
+                <input asp-for="Production" class="form-control" />
+                <span asp-validation-for="Production" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdBovine" class="control-label">Vaca</label>
+                <input asp-for="IdBovine" class="form-control" readonly />
+                <span asp-validation-for="IdBovine" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Number" class="control-label">N&uacute;mero</label>
+                <input asp-for="Number" class="form-control" readonly />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Earring" class="control-label">Arete</label>
+                <input asp-for="Earring" class="form-control" readonly />
+                <span asp-validation-for="Earring" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" readonly />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Pregnant" class="control-label">Gestaci&oacute;n</label>
+                <input asp-for="Pregnant" class="form-control" readonly />
+                <span asp-validation-for="Pregnant" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Register" class="control-label">Fecha</label>
+                <input asp-for="Register" class="form-control" />
+                <span asp-validation-for="Register" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Estado</label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="mt-4">
+    <a class="btn btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+    <a asp-controller="Animal" asp-action="DetallesProduccion" asp-route-id="@Model.Id" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Detalles</a>
+
+    <a asp-controller="Animal" asp-action="Producciones" class="btn btn-success"><i class="fa-solid fa-weight-scale"></i> Producciones</a>
+
+    <a asp-controller="Expediente" asp-action="Portada" class="btn btn-success"><i class="fa-solid fa-bars"></i> Menú</a>
+</div>

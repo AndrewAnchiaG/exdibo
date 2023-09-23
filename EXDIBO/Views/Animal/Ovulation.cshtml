@@ -1,0 +1,109 @@
+﻿@model EXDIBO.Util.Ovulation
+
+@{
+    ViewData["Title"] = "Ovulation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script> var urlBase = '@Context.Request.Host'; </script>
+}
+
+    <h1>Registrar Ovulación</h1>
+
+    <h4>Res en Ovulaci&oacute;n</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-controller="Animal" asp-action="Ovulation" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+               
+                <div class="form-group">
+                    <input asp-for="Id" class="form-control" type="hidden" min="0" value="0" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="IdMother" class="control-label">N° Madre</label>
+                    <input asp-for="IdMother" id="IdMother" type="hidden" />
+                    <input id="numMother" class="form-control" onkeyup="searchMother()" type="number" min="1" placeholder="Número de Madre" required />
+                    <span asp-validation-for="IdMother" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre de Madre</label>
+                    <input id="Mother" class="form-control" type="text" placeholder="Nombre de Madre" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">G&eacute;nero Madre</label>
+                    <input id="generoMother" class="form-control" placeholder="Género de Madre" type="text" readonly />
+                    <div id="msgm" class="text-danger"></div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdFather" class="control-label">N° Padre</label>
+                    <input asp-for="IdFather" id="IdFather" type="hidden" />
+                    <input id="numFather" class="form-control" onkeyup="searchFather()" type="number" min="1" placeholder="Número de Padre" required />
+                    <span asp-validation-for="IdFather" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre de Padre</label>
+                    <input id="father" class="form-control" type="text" placeholder="Nombre de Padre" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">G&eacute;nero Padre</label>
+                    <input id="generofather" class="form-control" placeholder="Género Padre" type="text" readonly />
+                    <div id="msgf" class="text-danger"> </div>
+                </div>
+
+
+                 <div class="form-group">
+                    <label asp-for="Register" class="control-label">Fecha</label>
+                    <input asp-for="Register" class="form-control" type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")" max="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")"/>
+                    <span asp-validation-for="Register" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdBreed" class="control-label">Raza</label>
+                    <select asp-for="IdBreed" class="form-control">
+                        @{
+                        foreach (var item in (List<EXDIBO.Util.Breed>)ViewData["breeds"])
+                        {
+                                    <option value="@item.Id">Raza: @item.Name - Gen: @item.Genetics </option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdBreed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdFarm" class="control-label">Finca</label>
+                <select asp-for="IdFarm" class="form-control">
+                    @{
+                        foreach (var item in (List<EXDIBO.Util.Farm>)ViewData["farms"])
+                        {
+                                    <option value="@item.Id"> @item.Name </option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdFarm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdGroup" class="control-label">Grupo</label>
+                <select asp-for="IdGroup" class="form-control">
+                    @{
+                        foreach (var item in (List<EXDIBO.Util.Group>)ViewData["groups"])
+                        {
+                                    <option value="@item.Id"> @item.Name </option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="IdGroup" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <a class="btn btn-lg btn-danger" asp-action="Portada" asp-controller="Expediente">Cancelar </a>
+
+                <button type="submit" class="btn btn-lg btn-success">Guardar </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="~/js/Animal.js"></script>

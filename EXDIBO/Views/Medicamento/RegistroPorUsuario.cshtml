@@ -1,0 +1,156 @@
+﻿@model IEnumerable<EXDIBO.Util.Record>
+
+@{
+    ViewData["Title"] = "RegistroPorUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center" style="font-family:'Liberation Sans'">Expediente Digital Bovino</h1>
+
+
+<h1 class="mt-2">Registro por Usuario</h1>
+
+
+<form asp-controller="Medicamento" asp-action="RegistroPorUsuario" method="post">
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Código</div>
+                </div>
+                <input type="number" name="code" class="form-control" min="1000" placeholder="Código de usuario">
+            </div>
+        </div>
+
+        <div class="col">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+    </div>
+    <span class="text-center text-danger"> @ViewData["error"] </span>
+</form>
+
+
+
+<div class="mt-4">
+<a class="btn btn-success" asp-controller="Medicamento" asp-action="VerRegistros"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+<a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+<a class="btn btn-success" asp-action="Farmaco"><i class="fa-solid fa-plus"></i> Nuevo <i class="fa-solid fa-pills"></i></a>
+
+</div>
+
+@{
+    if (Model != null)
+    {
+        int length = Model.Count();
+        int num = 1;
+        if (length > 0)
+        {
+            <table class="table mt-2">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Medicamento
+                        </th>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Aplicar
+                        </th>
+                        <th>
+                            Número
+                        </th>
+                        <th>
+                            Animal
+                        </th>
+                        <th>
+                            Finca
+                        </th>
+                        <th>
+                            Grupo
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th>
+                            Retiro
+                        </th>
+                        <th>
+                            Usuario
+                        </th>
+                        <th>
+                            Opciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @num
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Medicine)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Kind)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Apply)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Number)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Farm)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Group)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RegisterRecord)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Withdrawal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Username)
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-controller="Medicamento" asp-action="DetalleExpediente" asp-route-id="@item.IdRecord" class="btn btn-success">Ver <i class="fa-solid fa-magnifying-glass-plus"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        num++;
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-center mt-4">
+                <h1>El código de usuario indicado no posee ningún registro veterinario</h1>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-center mt-4">
+            <h2>Indiqué el código de usuario que desea consultar</h2>
+        </div>
+    }
+
+}

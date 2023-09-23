@@ -1,0 +1,150 @@
+﻿@model IEnumerable<EXDIBO.Util.BovineReport>
+
+@{
+    ViewData["Title"] = "Nacimientos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Reporte de Nacimientos</h1>
+
+
+<form asp-controller="Reporte" asp-action="Nacimientos" method="POST">
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Desde</div>
+                </div>
+                <input type="date" name="Desde" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" min="2010-01-01">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Hasta</div>
+                </div>
+                <input type="date" name="Hasta" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" min="2010-01-01">
+            </div>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+    </div>
+    <span class="text-center text-danger"> @ViewData["error"] </span>
+</form>
+
+
+
+@{
+    int num = 1;
+    if (Model != null)
+    {
+
+        <table class="table table-responsive table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Numero
+                    </th>
+                    <th>
+                        Arete
+                    </th>
+                    <th>
+                        Madre
+                    </th>
+                    <th>
+                        Padre
+                    </th>
+                    <th>
+                        Raza
+                    </th>
+                    <th>
+                        Finca
+                    </th>
+                    <th>
+                        Grupo
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Genero
+                    </th>
+                    <th>
+                        Nació
+                    </th>
+                    <th>
+                        Peso
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @num
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Earring)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Mother)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Father)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdBreed)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdFarm)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdGroup)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Born)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Weight)
+                        </td>
+                        <td>
+                            @if((bool)item.Status){
+                            <span>Vivo</span>
+                            }else
+                            {
+                            <span>Murió</span>
+                            }
+                        </td>
+                    </tr>
+                    num++;
+                }
+            </tbody>
+        </table>
+    } else {
+    <div class="mt-4">
+        <hr />
+        <h4 class="text-center mt-3">Seleccione el intervalo de fechas a consultar</h4>
+        <p class="mt-3">De momento no hay información para mostrar, diríjase a hacer una consulta para mostrar la información de ese lapso de tiempo</p>
+    </div>
+    }
+}
+
+

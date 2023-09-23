@@ -1,0 +1,90 @@
+﻿@model IEnumerable<EXDIBO.Util.Group>
+
+@{
+    ViewData["Title"] = "Grupos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Grupos</h1>
+
+<p>
+    <a class="btn btn-success" asp-controller="Finca" asp-action="Grupo"><i class="fa-solid fa-plus"></i> Grupo</a>
+</p>
+
+
+@{
+    @if (Model != null)
+    {
+        var num = 1;
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            N&uacute;mero
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Opciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @num
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Number)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @if (Convert.ToBoolean(item.Status))
+                                {
+                                    <span>Activo</span>
+                                }
+                                else
+                                {
+                                    <span>Inactivo</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+                                    <a asp-action="DetallesGrupo" asp-controller="Finca" asp-route-id="@item.Id" class="btn btn-info text-light"> <i class="fa-solid fa-file-lines"></i></a>
+                                    <a asp-action="EditarGrupo" asp-controller="Finca" asp-route-id="@item.Id" class="btn btn-dark text-light"> <i class="fa-solid fa-pen-to-square"></i></a>
+                                    @if (Convert.ToBoolean(item.Status))
+                                    {
+                                        <a class="btn btn-secondary text-light" asp-action="EstadoGrupo" asp-controller="Finca" asp-route-id="@item.Id" asp-route-status="false"><i class="fa-solid fa-trash"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-success text-light" asp-action="EstadoGrupo" asp-controller="Finca" asp-route-id="@item.Id" asp-route-status="true"><i class="fa-solid fa-check"></i></a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                        num++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h1 class="text-center mt-4">No hay Grupos para mostrar</h1>
+    }
+
+}

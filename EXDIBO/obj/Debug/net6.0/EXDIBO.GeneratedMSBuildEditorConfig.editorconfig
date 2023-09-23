@@ -1,0 +1,280 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EXDIBO
+build_property.RootNamespace = EXDIBO
+build_property.ProjectDir = C:\Users\ANDREW ANCHÍA\Documents\expedientedigital\EXDIBO\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\ANDREW ANCHÍA\Documents\expedientedigital\EXDIBO
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/Animal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXEFuaW1hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/DetallesAnimal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXERldGFsbGVzQW5pbWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/DetallesProduccion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXERldGFsbGVzUHJvZHVjY2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/EditarAnimal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXEVkaXRhckFuaW1hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/EditarProduccion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXEVkaXRhclByb2R1Y2Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/Gestacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXEdlc3RhY2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/ListaAnimales.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXExpc3RhQW5pbWFsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/ListaProduccion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXExpc3RhUHJvZHVjY2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/Ovulation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXE92dWxhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/Parto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXFBhcnRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/Production.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXFByb2R1Y3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Animal/Razas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5pbWFsXFJhemFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/AccesoDenegado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxBY2Nlc29EZW5lZ2Fkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/AccesoNegado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxBY2Nlc29OZWdhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/Error404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxFcnJvcjQwNC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/EXDIBO.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxFWERJQk8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/Politicas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxQb2xpdGljYXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/PoliticasPublicas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxQb2xpdGljYXNQdWJsaWNhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/Portada.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxQb3J0YWRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Expediente/ProblemasConexion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZWRpZW50ZVxQcm9ibGVtYXNDb25leGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Finca/Fincas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluY2FcRmluY2FzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Finca/Grupos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluY2FcR3J1cG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Mantenimiento/Aplicar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudGVuaW1pZW50b1xBcGxpY2FyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Mantenimiento/Enfermedades.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudGVuaW1pZW50b1xFbmZlcm1lZGFkZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Mantenimiento/Examenes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudGVuaW1pZW50b1xFeGFtZW5lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Mantenimiento/Procedimientos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudGVuaW1pZW50b1xQcm9jZWRpbWllbnRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Mantenimiento/Vias.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFudGVuaW1pZW50b1xWaWFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/AplicarMedicamento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cQXBsaWNhck1lZGljYW1lbnRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/DetalleExpediente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cRGV0YWxsZUV4cGVkaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/DetallesFarmaco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cRGV0YWxsZXNGYXJtYWNvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/EditarFarmaco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cRWRpdGFyRmFybWFjby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/Farmaceuticos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cRmFybWFjZXV0aWNvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/Farmaco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cRmFybWFjby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/RegistroAnimal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cUmVnaXN0cm9BbmltYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/RegistroPorFecha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cUmVnaXN0cm9Qb3JGZWNoYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/RegistroPorUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cUmVnaXN0cm9Qb3JVc3VhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/TipoFarmaco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cVGlwb0Zhcm1hY28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Medicamento/VerRegistros.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cVmVyUmVnaXN0cm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/AnimalDesecho.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxBbmltYWxEZXNlY2hvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/Gestacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxHZXN0YWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/Implantado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxJbXBsYW50YWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/Inyectados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxJbnllY3RhZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/Nacimientos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxOYWNpbWllbnRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/PrenesEfectiva.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxQcmVuZXNFZmVjdGl2YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/ProduccionLactea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxQcm9kdWNjaW9uTGFjdGVhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/ProyeccionAlumbramiento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxQcm95ZWNjaW9uQWx1bWJyYW1pZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/Rendimiento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxSZW5kaW1pZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/Retiros.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxSZXRpcm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Reporte/TopFarmacos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxUb3BGYXJtYWNvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/AccesoDenegado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xBY2Nlc29EZW5lZ2Fkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/AccesoInactivo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xBY2Nlc29JbmFjdGl2by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/DetallesUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xEZXRhbGxlc1VzdWFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/EditarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXJVc3VhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/IniciarSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmljaWFyU2VzaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/ListaUsuarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMaXN0YVVzdWFyaW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/Nuevo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xOdWV2by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Usuario/VerRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xWZXJSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hy2ohdbb61
+
+[C:/Users/ANDREW ANCHÍA/Documents/expedientedigital/EXDIBO/Views/Shared/_Start.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-cyhg7dq4d8

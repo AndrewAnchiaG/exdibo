@@ -1,0 +1,160 @@
+﻿@model EXDIBO.Util.User
+
+@{
+    ViewData["Title"] = "Detalles de Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+
+    if (Model != null)
+    {
+
+    <h1>Detalles de Usuario</h1>
+    <div>
+                <h4>Perfil de Usuario</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        Código
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Code)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.DNI)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.DNI)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Nombre
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt class="col-sm-2">
+                        I Apellido
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.FirstName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        II Apellido
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.LastName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Correo
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Contraseña
+                    </dt>
+                    <dd class="col-sm-10">
+                        <input class="border-0" style="outline:none;" type="password" value="@Model.Password" readonly />
+                    </dd>
+                    <dt class="col-sm-2">
+                        Nacimiento
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Birth)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Genero
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Gender)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Ocupación
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Job)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Celular
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Mobile)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Teléfono
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Phone)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Rol
+                    </dt>
+                    <dd class="col-sm-10">
+                        @if (Model.Role == "0")
+                    {
+                           <span>Ing.TI</span>
+                    } else if (Model.Role == "1") {
+                            <span>Due&ntilde;o</span>    
+                    } else if (Model.Role == "2") {
+                            <span>Administrador</span>  
+                    } else if (Model.Role == "3") {
+                            <span>Ing.Agr&oacute;nomo</span>
+                    } else if (Model.Role == "4") {
+                           <span>Producci&oacute;n Animal</span>
+                    } else if (Model.Role == "5") {
+                            <span>Veterinario</span>
+                    } else if (Model.Role == "6") {
+                             <span>Vaquero</span>
+                    } else if (Model.Role == "7") {
+                            <span>Pe&oacute;n</span>
+                    } else if (Model.Role == "8") {
+                            <span>Auxiliar</span>
+                    } else if (Model.Role == "9") {
+                        <span>Invitado</span>
+                    }else
+                    {
+                        @Html.DisplayFor(model => model.Role)
+                    }
+                </dd>
+                    <dt class="col-sm-2">
+                        Estado
+                    </dt>
+                    <dd class="col-sm-10">
+                        @{
+                        if ((bool)Model.Status)
+                        {
+                                    <spam>Activo</spam>
+                        }
+                        else
+                        {
+                                    <spam>Inactivo</spam>
+                        }
+                        }
+                    </dd>
+                </dl>
+    </div>
+    <div>
+                <a class="btn btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+                <a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+                <a class="btn btn-success" asp-controller="Usuario" asp-action="EditarPerfil" asp-route-id="@Model.Id"><i class="fa-solid fa-user-pen"></i> Editar</a>
+    </div>
+    }
+    else
+    {
+    <div class="text-center my-4">
+       
+        <h1 class="my-4 display-1">Detalles de Usuario</h1>
+
+        <h1 class="my-4">El Usuario que se indica no existe</h1>
+
+        <h3 class="my-4">No hay información del Usuario indicado, porque no existe un registro en la Base de Datos</h3>
+
+        <p class="mt-4">Por favor diríjase al Menú</p>
+
+        <a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+    </div>
+    }
+}

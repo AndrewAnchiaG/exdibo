@@ -1,0 +1,151 @@
+﻿@model IEnumerable<EXDIBO.Util.PregnantReport>
+
+@{
+    ViewData["Title"] = "Reporte Gestación Animal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h1 class="mt-3">Reporte de Gestaci&oacute;n Animal</h1>
+
+<form asp-controller="Reporte" asp-action="PrenesEfectiva" method="POST">
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Desde</div>
+                </div>
+                <input type="date" name="Desde" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" min="2010-01-01">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon">Hasta</div>
+                </div>
+                <input type="date" name="Hasta" class="form-control" max="@DateTime.Now.ToString("yyyy-MM-dd")" min="2010-01-01">
+            </div>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+    </div>
+    <span class="text-center text-danger"> @ViewData["error"] </span>
+</form>
+
+@{
+    int num = 1;
+    if (Model != null)
+    {
+        <table class="table table-responsive table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Número
+                    </th>
+                    <th>
+                        Arete
+                    </th>
+                    <th>
+                        Vaca
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Padre
+                    </th>
+                    <th>
+                        Nombre Padre
+                    </th>
+                    <th>
+                        Raza
+                    </th>
+
+                    <th>
+                        Finca
+                    </th>
+
+                    <th>
+                        Grupo
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th>
+                        Gestación
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @num
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Earring)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdMother)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MotherName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdFather)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FatherName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BreedName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FarmName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GroupName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Register)
+                        </td>
+                        <td>
+                            @{
+                                if ((bool)item.Status)
+                                {
+                                    <input type="button" class="btn btn-outline-info" value="Positivo" />
+                                }
+                                else
+                                {
+                                    <input type="button" class="btn btn-outline-secondary" value="Negativo" />
+                                }
+                            }
+                        </td>
+
+                    </tr>
+                    num++;
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="mt-4">
+            <hr />
+            <h4 class="text-center mt-3">Seleccione el intervalo de fechas a consultar</h4>
+            <p class="mt-3">De momento no hay información para mostrar, diríjase a hacer una consulta para mostrar la información de ese lapso de tiempo</p>
+        </div>
+    }
+
+}

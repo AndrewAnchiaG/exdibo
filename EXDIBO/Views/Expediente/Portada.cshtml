@@ -1,0 +1,161 @@
+﻿@{
+    @using System.Security.Claims;
+
+    ViewData["Title"] = "Portada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var nameuser = User.FindFirst(ClaimTypes.Name).Value + " " + User.FindFirst(ClaimTypes.UserData).Value;
+    var IdUser = User.FindFirst(ClaimTypes.Sid).Value;
+}
+<link rel="stylesheet" type="text/css" href="~/css/Butons.css" /> 
+
+<div class="align-content-center">
+    <h2 class="display-2 text-center" style="font-family:'Liberation Sans'">Expediente Digital Bovino</h2>
+
+    <div class="container-fluid mt-1">
+        <div class="row text-start">
+            <div class="col m-2 border rounded text-start">
+                <h3 class="">Animales </h3>
+                <a asp-controller="Animal" asp-action="Animal" class="btn effect01 m-2"><i class="fa-solid fa-cow"></i> Nueva Res</a>
+                <br />
+                <a asp-controller="Animal" asp-action="ListaAnimales" class="btn effect01 m-2"><i class="fa-solid fa-list-ol"></i><span> Animales</span></a>
+                <br />
+                <a asp-controller="Animal" asp-action="Production" class="btn effect01 m-2"><i class="fa-solid fa-vial"></i> Producción</a>
+                <br />
+                <a asp-controller="Animal" asp-action="ListaProduccion" class="btn effect01 m-2"><i class="fa-solid fa-weight-scale"></i> Producciones</a>
+                <br />
+                <a asp-controller="Animal" asp-action="Ovulation" class="btn effect01 m-2"><i class="fa-solid fa-cow"></i><span> Ovulación</span></a>
+                <br />
+                <a asp-controller="Animal" asp-action="Gestacion" class="btn effect01 m-2"><i class="fa-solid fa-calendar-check"></i> Gestaci&oacute;n</a>
+                
+                <br />
+                II Etapa
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Animal" asp-action="Razas"><i class="fa-solid fa-dna"></i> Razas</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Animal" asp-action="Parto"><i class="fa-solid fa-plus"></i> Parto</a>
+               
+            </div>
+
+            <div class="col m-2 border rounded">
+                <h3 class="">Medicamentos</h3>
+
+                <a class="btn effect01 m-2" asp-controller="Medicamento" asp-action="Farmaco"><i class="fa-solid fa-file-medical"></i> Nueva Medicina</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Medicamento" asp-action="Farmaceuticos"><i class="fa-solid fa-suitcase-medical"></i> Medicamentos</a>
+                <br />
+                <a class="btn effect01 m-2"  asp-controller="Medicamento" asp-action="AplicarMedicamento"><i class="fa-solid fa-syringe"></i>  Aplicar Medicamento</a>
+                <br />
+                <a class="btn effect01 m-2"  asp-controller="Medicamento" asp-action="VerRegistros"><i class="fa-solid fa-folder-tree"></i> Registro Veterinario</a>
+                <br />
+                II Etapa
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Medicamento" asp-action="TipoFarmaco"><i class="fa-solid fa-pills"></i> Clasificaci&oacute;n Medicamentos</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Mantenimiento" asp-action="Enfermedades"><i class="fa-solid fa-plus"></i> Diagnosticos</a>
+                 <br />
+                <a class="btn effect01 m-2" asp-controller="Mantenimiento" asp-action="Procedimientos"> <i class="fa-solid fa-stethoscope"></i> <i class="fa-solid fa-plus"></i> Procedimientos</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Mantenimiento" asp-action="Examenes"><i class="fa-solid fa-plus"></i> Examenes</a>
+            </div>
+
+
+            <div class="col m-2 border rounded">
+
+                <h3 class=""> Reportes </h3>
+
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="Nacimientos"><i class="fa-solid fa-file-circle-plus"></i> Nacimientos</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="AnimalDesecho"><i class="fa-solid fa-file-lines"></i> Desechos Animal</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="Inyectados"><i class="fa-solid fa-file-prescription"></i> Animales Inyectados</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="PrenesEfectiva"><i class="fa-solid fa-list-check"></i> Animales en Gestación</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="Implantado"><i class="fa-solid fa-pallet"></i> Animales Implantados</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="ProyeccionAlumbramiento"><i class="fa-solid fa-chart-area"></i> Proyección de Alumbramientos</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="ProduccionLactea"> <i class="fa-solid fa-wine-bottle"></i><i class="fa-solid fa-flask-vial"></i>  Producción L&aacute;ctea</a>
+                <br />
+                II Etapa
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="Retiros"><i class="fa-solid fa-plus"></i> Retiro</a>
+            </div>
+
+            <div class="col m-2 border rounded">
+                <h3 class="">Graficos</h3>
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="Gestacion"><i class="fa-solid fa-chart-column"></i> Gestaci&oacute;n Anual</a>
+               <br />
+                II Etapa
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="Rendimiento"><i class="fa-solid fa-chart-gantt"></i> Rendimiento Cárnico</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="TopFarmacos"><i class="fa-solid fa-prescription-bottle-medical"></i> Top Medicamentos</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Reporte" asp-action="Nacimientos"><i class="fa-solid fa-chart-pie"></i> Proyecci&oacute;n de Nacimientos</a>
+
+            </div>
+        </div>
+
+        @*--- OTRO ROW ----*@
+
+        <div class="row mt-2">
+
+
+            @*---- USUARIOS ---*@
+
+            <div class="col mt-2 border rounded">
+                <h3 class=""> Usuarios</h3>
+
+                <a class="btn effect01 m-2" asp-controller="Usuario" asp-action="DetallesUsuario" asp-route-id="@IdUser">  <i class="fa-solid fa-user-doctor"></i> @nameuser</a>
+
+                @if (User.IsInRole("0") || User.IsInRole("1") || User.IsInRole("2"))
+                {
+                    <a class="btn effect01 m-2" asp-controller="Usuario" asp-action="Nuevo"><i class="fa-solid fa-user-plus"></i> Nuevo Usuario</a>
+
+                    <a class="btn effect01 m-2" asp-controller="Usuario" asp-action="ListaUsuarios"> <i class="fa-solid fa-users-line"></i> Usuarios</a>
+                }
+                <a class="btn effect01 m-2" asp-controller="Expediente" asp-action="Politicas"> <i class="fa-solid fa-scale-unbalanced"></i> Políticas</a>
+            </div>
+
+            @*---- MANTENIMIENTOS ---*@
+
+            <div class="col m-2 border rounded">
+
+                <h3 class=""> Mantenimientos</h3>
+                <a class="btn effect01 m-2" asp-controller="Usuario" asp-action="VerRoles"> <i class="fa-solid fa-clipboard-user"></i> Roles</a>
+                 <br />
+                <a class="btn effect01 m-2"  asp-controller="Mantenimiento" asp-action="Enfermedades"><i class="fa-solid fa-viruses"></i> Enfermedades</a>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Expediente" asp-action="Politicas"> <i class="fa-solid fa-scale-unbalanced"></i> Políticas</a>
+
+                <spam>II Etapa</spam>
+                <br />
+                <a class="btn effect01 m-2" asp-controller="Finca" asp-action="Fincas"><i class="fa-solid fa-map-location"></i> Fincas</a>
+                <br />
+                <a class="btn effect01 m-2"  asp-controller="Finca" asp-action="Grupos"><i class="fa-solid fa-object-group"></i> Grupos</a>
+                <br />
+                <a class="btn effect01 m-2"  asp-controller="Mantenimiento" asp-action="Aplicar"><i class="fa-solid fa-eye-dropper"></i> Modo Uso</a>
+                <br />
+                <a class="btn effect01 m-2"  asp-controller="Mantenimiento" asp-action="Vias"><i class="fa-solid fa-mortar-pestle"></i> Vías</a>
+              
+
+            </div>
+
+            <div class="col m-2">
+                @*<h3 class=""> Mantenimientos</h3>
+
+                <a asp-controller="" asp-action=""> </a>*@
+            </div>
+
+            <div class="col m-2">
+                @*<h3 class=""> Mantenimientos</h3>
+
+                <a asp-controller="" asp-action=""> </a>*@
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,153 @@
+﻿@model EXDIBO.Util.Medicine
+
+@{
+    ViewData["Title"] = "Editar Farmaco";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar F&aacute;rmaco</h1>
+
+<h4>Medicamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Medicamento" asp-action="EditarFarmaco">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" required/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Tipo</label>
+                <select asp-for="IdKind" class="form-control"> 
+                @{
+                    foreach (var item in (List<EXDIBO.Util.Kind>)ViewData["kinds"])
+                    {
+                                <option value="@item.Id"> @item.Name</option>
+                    }
+                }
+                </select>
+                <span asp-validation-for="Kind" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Via" class="control-label">V&iacute;a</label>
+                <select asp-for="Via" class="form-control" >
+                    <option value="Inyectable">Inyectable</option>
+                    <option value="Cutanea">Cutánea</option>
+                    <option value="Nasal">Nasal</option>
+                    <option value="Oftalmica">Oftálmica</option> 
+                    <option value="Otica">Ótica</option>
+                    <option value="Oral">Oral</option>
+                    <option value="Parenteral">Parenteral</option>
+                    <option value="Respiratoria">Respiratoria</option>
+                    <option value="Rectal">Rectal</option>
+                    <option value="Sublingual">Sublingual</option>
+                    <option value="Topico">Tópico</option>
+                    <option value="Transdermica">Transdérmica</option>
+                    <option value="Vaginal">Vaginal</option>
+                </select>
+                <span asp-validation-for="Via" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Apply" class="control-label">Aplicar</label>
+                <select asp-for="Apply" class="form-control" >
+                    <option value="NoAplica">No Aplica</option>
+                    <option value="Intramuscular">Intramuscular</option>
+                    <option value="Intravenosa">Intravenosa</option>
+                    <option value="Intradérmica">Intradérmica</option>
+                    <option value="Intraarterial">Intraarterial</option>
+                    <option value="Intraperitoneal">Intraperitoneal</option>
+                    <option value="Intraarticular">Intraarticular</option>
+                    <option value="Endovenosa">Endovenosa</option>
+                    <option value="Externo">Externo</option>
+                    <option value="Epidural">Epidural</option>
+                    <option value="Subcutanea">Subcutánea</option>
+                </select>
+                <span asp-validation-for="Apply" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Dose" class="control-label">Dosis</label>
+                <div class="row">
+                    <div class="col-10">
+                        <input asp-for="Dose" class="form-control" type="number" min="0" required/>
+                    </div>
+                    <div class="col">
+                        ML 
+                    </div>
+                </div>
+                <span asp-validation-for="Dose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Often" class="control-label">Frecuencia</label>
+                <div class="row">
+                    <div class="col-9">
+                    <input asp-for="Often" class="form-control" required/>
+                    </div>
+                    <div class="col">
+                        c/24H
+                    </div>
+                </div>
+                <span asp-validation-for="Often" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Times" class="control-label">Aplicaciones</label>
+                <div class="row">
+                    <div class="col-10">
+                    <input asp-for="Times" class="form-control" type="number" min="0" required/>
+                    </div>
+                    <div class="col">
+                        D&iacute;as
+                    </div>
+                </div> 
+                <span asp-validation-for="Times" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Withdrawal" class="control-label">Retiro</label>
+                <input asp-for="Withdrawal" class="form-control" type="number" required/>
+                <span asp-validation-for="Withdrawal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contraindication" class="control-label">Contraindicaciones</label>
+                <input asp-for="Contraindication" class="form-control" />
+                <span asp-validation-for="Contraindication" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Register" class="form-control" type="hidden" value="@DateTime.Now"/>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Note" class="control-label">Indicaciones</label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Estado</label> <br />
+                <input class="form-check-input" asp-for="Status" type="checkbox" checked/> Activo
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <a href="javascript: history.go(-1)" class="btn btn-lg btn-danger">Cancelar <i class="fa-solid fa-ban"></i></a>
+
+                <button type="submit" class="btn btn-lg btn-success">Guardar <i class="fa-solid fa-floppy-disk"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="mt-4">
+   <a class="btn btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+    <a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+    <a class="btn btn-success" asp-controller="Medicamento" asp-action="Farmaceuticos"><i class="fa-solid fa-suitcase-medical"></i> Farmacos</a>
+</div>
+
+

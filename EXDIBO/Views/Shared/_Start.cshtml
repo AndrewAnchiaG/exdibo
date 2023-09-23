@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Expediente Digital Bovino">
+    <meta name="keywords" content="Vaca, expedientevaca, expediente,ExpedienteAnimal, Bovino, Animal, Vaca, Toro, expedientedigitalbovino, registroanimal">
+    <meta name="author" content="Ing. Andrew Anchia Gonzalez">
+    <title>@ViewData["Title"] - EXDIBO</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/7566b20199.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Expediente" asp-action="EXDIBO" > <img src="~/imagenes/cawbull.png" width="30px" height="30px" /> EXDIBO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Usuario" asp-action="IniciarSesion"><i class="fa-solid fa-user-lock"></i> Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Expediente" asp-action="PoliticasPublicas"><i class="fa-solid fa-scale-unbalanced"></i> Políticas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    @{
+        DateTime myDateTime = DateTime.Now;
+        string year = myDateTime.Year.ToString();
+    }    
+    <div class="container mt-4">
+      <footer class="border-top py-2 mt-4">
+        <ul class="nav justify-content-center border-bottom">
+          <li class="nav-item"><a asp-controller="Expediente" asp-action="EXDIBO" class="nav-link px-2 text-muted"><i class="fa-solid fa-house"></i> Inicio</a></li>
+          <li class="nav-item"><a asp-controller="Usuario" asp-action="IniciarSesion" class="nav-link px-2 text-muted"><i class="fa-solid fa-user-lock"></i> Iniciar Sesión</a></li>
+          <li class="nav-item"><a asp-controller="Expediente" asp-action="PoliticasPublicas" class="nav-link px-2 text-muted"><i class="fa-solid fa-scale-unbalanced"></i> Políticas</a></li>
+        </ul>
+        <p class="text-center text-muted">
+            Todos los derechos reservados &copy; @year - EXDIBO&reg; - <a asp-area="" asp-controller="Expediente" asp-action="PoliticasPublicas" class="text-decoration-none" >Políticas</a>
+        <br />
+        Bendito el que confía en el Señor, y pone su esperanza en Él.
+        <br />
+        Jeremías 17:7
+        </p>
+      </footer>
+</div>
+
+</body>
+</html>

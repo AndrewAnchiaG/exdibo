@@ -1,0 +1,133 @@
+﻿@model EXDIBO.Util.User
+
+@{
+    ViewData["Title"] = "Nuevo Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Registro de Usuario</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Usuario" asp-action="Nuevo" method="POST">
+
+            @if (Convert.ToString(ViewData["error"]) != String.Empty)
+            {
+                <div role="alert" class="text-danger"> @ViewData["error"] </div>
+            }
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden" value="-1" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Code" class="control-label">C&oacute;digo</label>
+                <input asp-for="Code" class="form-control" type="number" min="999" max="99999" placeholder="Código" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DNI" class="control-label">Documento Identidad</label>
+                <input asp-for="DNI" class="form-control" placeholder="N&uacute;mero Identidad" />
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" placeholder="Nombre" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">I Apellido</label>
+                <input asp-for="FirstName" class="form-control" placeholder="I Apellido" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">II Apellido</label>
+                <input asp-for="LastName" class="form-control" placeholder="II Apellido" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Correo</label>
+                <input asp-for="Email" class="form-control" type="email" placeholder="Correo" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Contrase&ntilde;a</label>
+                <input asp-for="Password" id="Password" onkeyup="CheckMinimumRequirement()" class="form-control" type="password" placeholder="Contrase&ntilde;a" />
+                <input id="mostrarcontrasena" class="text-success border-success bg-success" onclick="ShowOrHide_Password()" type="checkbox" title="Click para mostrar contrase&ntilde;a" /> Mostrar Contraseña
+                <div id="msgerror" class="text-warning"></div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Confirmar Contrase&ntilde;a</label>
+                <input id="confirmar" name="confirmar" onkeyup="CheckMinimumRequirement()" class="form-control" type="password" placeholder="Contrase&ntilde;a" />
+                <div id="msgcc" class="text-warning"></div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birth" class="control-label">Nacimiento</label>
+                <input asp-for="Birth" class="form-control" type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="Birth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label">Género</label>
+                <select asp-for="Gender" class="form-control">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Job" class="control-label">Ocupaci&oacute;n</label>
+                <input asp-for="Job" class="form-control" placeholder="Ocupaci&oacute;n" />
+                <span asp-validation-for="Job" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label">Celular</label>
+                <input asp-for="Mobile" class="form-control" placeholder="Celular" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">Tel&eacute;fono</label>
+                <input asp-for="Phone" class="form-control" placeholder="Tel&eacute;fono" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label">Rol</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="0">Ing.TI</option>
+                    <option value="1">Due&ntilde;o</option>
+                    <option value="2">Administrador</option>
+                    <option value="3">Ing.Agr&oacute;nomo</option>
+                    <option value="4">Producci&oacute;n Animal</option>
+                    <option value="5">Veterinario</option>
+                    <option value="6">Vaquero</option>
+                    <option value="7">Pe&oacute;n</option>
+                    <option value="8">Auxiliar</option>
+                    <option value="9">Invitado</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Status" type="hidden" value="true" />
+            </div>
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success">Guardar </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="form-group mt-4">
+
+    <a class="btn btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+    <a class="btn btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+</div>
+
+
+<script src="~/js/Usuario.js"></script>
+
+

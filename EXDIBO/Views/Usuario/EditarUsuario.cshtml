@@ -1,0 +1,197 @@
+﻿@model EXDIBO.Util.User
+
+@{
+    @using System.Security.Claims;
+    ViewData["Title"] = "Editar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar Usuario</h1>
+
+<h4>Usuario</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Usuario" asp-action="EditarUsuario" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="Id" type="hidden" />
+                <input asp-for="RegisterDate" type="hidden" />
+                <input asp-for="Token" type="hidden" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Code" class="control-label">Código</label>
+                <input asp-for="Code" class="form-control" type="number" min="0" placeholder="Código" readonly />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DNI" class="control-label">Documento Identidad</label>
+                <input asp-for="DNI" class="form-control" placeholder="Número Identidad" required />
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nombre</label>
+                <input asp-for="Name" class="form-control" placeholder="Nombre" required />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">I Apellido</label>
+                <input asp-for="FirstName" class="form-control" placeholder="I Apellido" required />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">II Apellido</label>
+                <input asp-for="LastName" class="form-control" placeholder="II Apellido" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Correo</label>
+                <input asp-for="Email" class="form-control" type="email" placeholder="Correo" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+            <label asp-for="Password" class="control-label">Contraseña</label>
+            <input asp-for="Password" id="password1" class="form-control" type="password" value="@Model.Password" placeholder="Contraseña" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="container">
+            <div class="row">
+            <div class="col align-self-end">
+            <input id="mostrarcontrasena" class="text-success border-success bg-success" onclick="ShowOrHide_Password()" type="checkbox" title="Click para mostrar contrase&ntilde;a" /> Mostrar Contraseña
+            </div>
+            </div>
+            </div>
+
+
+            <div class="form-group">
+            <label for="password2" class="control-label">Confirmar Contraseña</label>
+            <input name="password2" id="password2" class="form-control" value="@Model.Password" type="password" placeholder="Contrase&ntilde;a" />
+            </div>*@
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Contrase&ntilde;a</label>
+                <input asp-for="Password" id="Password" onkeyup="CheckMinimumRequirement()" class="form-control" type="password" value="@Model.Password" placeholder="Contrase&ntilde;a" />
+                <input id="mostrarcontrasena" class="text-success border-success bg-success" onclick="ShowOrHide_Password()" type="checkbox" title="Click para mostrar contrase&ntilde;a" /> Mostrar Contraseña
+                <div id="msgerror" class="text-warning"></div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirmar" class="control-label">Confirmar Contrase&ntilde;a</label>
+                <input id="confirmar" name="confirmar" onkeyup="CheckMinimumRequirement()" class="form-control" type="password" value="@Model.Password" placeholder="Contrase&ntilde;a" />
+                <div id="msgcc" class="text-warning"></div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birth" class="control-label">Nacimiento</label>
+                <input asp-for="Birth" class="form-control" type="date" placeholder="Nacimiento" />
+                <span asp-validation-for="Birth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label">G&eacute;nero</label>
+                <select asp-for="Gender" class="form-control">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Job" class="control-label">Ocupaci&oacute;n</label>
+                <input asp-for="Job" class="form-control" placeholder="Ocupación" />
+                <span asp-validation-for="Job" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label">Celular</label>
+                <input asp-for="Mobile" class="form-control" placeholder="Celular" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">Tel&eacute;fono</label>
+                <input asp-for="Phone" class="form-control" placeholder="Teléfono" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Role" class="control-label">Rol</label>
+                @{
+                    var role = User.FindFirst(ClaimTypes.Role).Value;
+
+                    if (role == "0" || role == "1" || role == "2")
+                    {
+                        <select asp-for="Role" class="form-control">
+                            <option value="2">Administrador</option>
+                            <option value="1">Dueño</option>
+                            <option value="0">Ing. TI</option>
+                            <option value="3">Ing. Agrónomo</option>
+                            <option value="8">Invitado</option>
+                            <option value="4">Producción Animal</option>
+                            <option value="7">Peón</option>
+                            <option value="5">Veterinario</option>
+                            <option value="6">Vaquero</option>
+                        </select>
+                    }
+                    else
+                    {
+                        <input asp-for="Role" type="hidden" />
+                        <select asp-for="Role" class="form-control" disabled>
+                            <option value="2">Administrador</option>
+                            <option value="1">Dueño</option>
+                            <option value="0">Ing. TI</option>
+                            <option value="3">Ing. Agrónomo</option>
+                            <option value="8">Invitado</option>
+                            <option value="4">Producción Animal</option>
+                            <option value="7">Peón</option>
+                            <option value="5">Veterinario</option>
+                            <option value="6">Vaquero</option>
+                        </select>
+                        <input asp-for="Role" type="hidden" />
+
+                    }
+                }
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Estado</label>
+                @{
+                    if (role == "0" || role == "1" || role == "2")
+                    {
+                        <select asp-for="Status" class="form-select">
+                            <option value="True">Activo</option>
+                            <option value="False">Inactivo</option>
+                        </select>
+                    }
+                    else
+                    {
+                        <select asp-for="Status" class="form-select" disabled>
+                            <option value="True">Activo</option>
+                            <option value="False">Inactivo</option>
+                        </select>
+                    }
+                }
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+
+                <button type="submit" onclick="alertSaveChanges()" class="btn btn-lg btn-success">Guardar <i class="fa-solid fa-floppy-disk"></i></button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="form-group mt-3">
+    <a class="btn btn-lg btn-success" href="javascript: history.go(-1)"><i class="fa-solid fa-arrow-left"></i> Atrás</a>
+
+    <a class="btn btn-lg btn-success" asp-controller="Expediente" asp-action="Portada"><i class="fa-solid fa-bars"></i> Menú</a>
+
+</div>
+
+<script type="text/javascript" src="~/js/Usuario.js"></script>
