@@ -76,19 +76,19 @@ EXDIBO 2022 - [ © Copyright ](https://gitlab.com/ANDREW_ANCHIA/expedientedigita
 <!-- CONTACT -->
 ## Contact
 
-* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/facebook.png" width="15px;"/> - [Andrew Anchia Gonzalez](https://www.facebook.com/andrew.anchia)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/blob/main/img/facebook.png" width="15px;"/> - [Andrew Anchia Gonzalez](https://www.facebook.com/andrew.anchia)
 
-* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/linkedin.png" height="15px;" width="15px;"/> [Andrew Anchia Gonzalez](linkedin-url)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/blob/main/img/linkedin.png" height="15px;" width="15px;"/> [Andrew Anchia Gonzalez](linkedin-url)
 
-* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/whatsapp.png" height="15px;" width="15px;"/> [WhatsApp](https://wa.me/+50685758771)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/blob/main/img/whatsapp.png" height="15px;" width="15px;"/> [WhatsApp](https://wa.me/+50685758771)
 
-* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/outlook.png" width="15px;"/> [EMail](mailto:aoanchiag@est.utn.ac.cr)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/blob/main/img/outlook.png" width="15px;"/> [EMail](mailto:aoanchiag@est.utn.ac.cr)
 
-* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/gmail.png" width="15px;"/> [GMail](mailto:andrewoag98@gmail.com)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/blob/main/img/gmail.png" width="15px;"/> [GMail](mailto:andrewoag98@gmail.com)
 
-* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/git.png" width="15px;"/> [Gitlab](https://gitlab.com/ANDREW_ANCHIA/)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/blob/main/img/git.png" width="15px;"/> [Gitlab](https://gitlab.com/ANDREW_ANCHIA/)
 
-* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/git.png" width="15px;"/> [*View App*](https://exdibo.azurewebsites.net/)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/blob/main/img/git.png" width="15px;"/> [*View App*](https://exdibo.azurewebsites.net/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
