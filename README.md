@@ -12,7 +12,7 @@
 <h1 align="center">Expediente Digital Bovino - EXDIBO</h1>
 
 
-<p>EXDIBO es una aplicación de software, donde podemos encontrar en funcionamiento un Expediente Digital Bovino donde se establecerá el registro de reses, de medicamentos, partos, ovulaciones, así como también reportes y gráficos para el análisis de datos que ayuden en la toma de decisiones de la finca.</p>
+<p>EXDIBO es una aplicaciÃ³n de software, donde podemos encontrar en funcionamiento un Expediente Digital Bovino donde se establecerÃ¡ el registro de reses, de medicamentos, partos, ovulaciones, asÃ­ como tambiÃ©n reportes y grÃ¡ficos para el anÃ¡lisis de datos que ayuden en la toma de decisiones de la finca.</p>
 
 
 [< Explore the docs >](https://gitlab.com/ANDREW_ANCHIA/expedientedigital) 
@@ -24,7 +24,7 @@
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-Esta sección debe enumerar los principales marcos/bibliotecas utilizados para iniciar su proyecto. Deje cualquier complemento/complemento para la sección de agradecimientos. Aquí están algunos ejemplos.
+Esta secciÃ³n debe enumerar los principales marcos/bibliotecas utilizados para iniciar su proyecto. Deje cualquier complemento/complemento para la secciÃ³n de agradecimientos. AquÃ­ estÃ¡n algunos ejemplos.
 
 
 * [![dotnet][dotnet.dev]][dotnet-url]
@@ -44,7 +44,7 @@ Esta sección debe enumerar los principales marcos/bibliotecas utilizados para in
 
 I want to use this space to list resources that i find helpful and I would like to give credit to.
 
-Quiero usar este espacio para enumerar los recursos que considero útiles y a los que me gustaría dar crédito.
+Quiero usar este espacio para enumerar los recursos que considero Ãºtiles y a los que me gustarÃ­a dar crÃ©dito.
 
 * [Font Awesome](https://fontawesome.com)
 
@@ -64,11 +64,11 @@ Quiero usar este espacio para enumerar los recursos que considero útiles y a los
 
 Distributed under the Copyright License. See `LICENSE.txt` for more information.
 
-Copyright 2022 © Finca ARWEN. All rights reserved.
+Copyright 2022 Â© Finca ARWEN. All rights reserved.
 
-Distribuido bajo la licencia de derechos de autor. Consulte `LICENSE.txt` para obtener más información.
+Distribuido bajo la licencia de derechos de autor. Consulte `LICENSE.txt` para obtener mÃ¡s informaciÃ³n.
 
-EXDIBO 2022 - [ © Copyright ](https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/blob/main/LICENSE.txt) - All rights reserved / Todos los Derechos Reservados
+EXDIBO 2022 - [ Â© Copyright ](https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/blob/main/LICENSE.txt) - All rights reserved / Todos los Derechos Reservados
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,19 +76,19 @@ EXDIBO 2022 - [ © Copyright ](https://gitlab.com/ANDREW_ANCHIA/expedientedigital
 <!-- CONTACT -->
 ## Contact
 
-* <img src="https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/raw/main/img/facebook.png" width="15px;"/> - [Andrew Anchia Gonzalez](https://www.facebook.com/andrew.anchia)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/facebook.png" width="15px;"/> - [Andrew Anchia Gonzalez](https://www.facebook.com/andrew.anchia)
 
-* <img src="https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/raw/main/img/linkedin.png" height="15px;" width="15px;"/> [Andrew Anchia Gonzalez](linkedin-url)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/linkedin.png" height="15px;" width="15px;"/> [Andrew Anchia Gonzalez](linkedin-url)
 
-* <img src="https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/raw/main/img/whatsapp.png" height="15px;" width="15px;"/> [WhatsApp](https://wa.me/+50685758771)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/whatsapp.png" height="15px;" width="15px;"/> [WhatsApp](https://wa.me/+50685758771)
 
-* <img src="https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/raw/main/img/outlook.png" width="15px;"/> [EMail](mailto:aoanchiag@est.utn.ac.cr)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/outlook.png" width="15px;"/> [EMail](mailto:aoanchiag@est.utn.ac.cr)
 
-* <img src="https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/raw/main/img/gmail.png" width="15px;"/> [GMail](mailto:andrewoag98@gmail.com)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/gmail.png" width="15px;"/> [GMail](mailto:andrewoag98@gmail.com)
 
-* <img src="https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/raw/main/img/git.png" width="15px;"/> [Gitlab](https://gitlab.com/ANDREW_ANCHIA/)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/git.png" width="15px;"/> [Gitlab](https://gitlab.com/ANDREW_ANCHIA/)
 
-* <img src="https://gitlab.com/ANDREW_ANCHIA/expedientedigital/-/raw/main/img/git.png" width="15px;"/> [*View App*](https://exdibo.azurewebsites.net/)
+* <img src="https://github.com/AndrewAnchiaG/exdibo/-/raw/main/img/git.png" width="15px;"/> [*View App*](https://exdibo.azurewebsites.net/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
